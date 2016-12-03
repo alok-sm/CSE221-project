@@ -1,0 +1,1 @@
+cmd_/home/pi/OS/MemoryLatency/ko/enable_arm_pmu.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/pi/OS/MemoryLatency/ko/enable_arm_pmu.ko /home/pi/OS/MemoryLatency/ko/enable_arm_pmu.o /home/pi/OS/MemoryLatency/ko/enable_arm_pmu.mod.o
