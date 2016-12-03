@@ -57,6 +57,7 @@ int main(){
     }
     
     printf("time delta = %u\n", time_end - time_start);
+    printf("time delta in ms = %llf\n", (time_end - time_start)/(float)500000);
 
     return 0;
 }

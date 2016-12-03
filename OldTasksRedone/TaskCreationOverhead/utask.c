@@ -13,12 +13,6 @@ char *myconcat(const char *s1, const char *s2){
     return result;
 }
 
-void *some_func(void *time_end1){
-    uint32_t *time_end = (uint32_t *)time_end1;
-    *time_end = rdtsc32();
-    return NULL;
-}
-
 
 int main(int argc, char** argv) {
 	char* buf = (char*) malloc( 7 * sizeof(char) );
@@ -34,13 +28,11 @@ int main(int argc, char** argv) {
     int status = 0;
     time_start = rdtsc32();
     pid = fork();
-    while ((wpid = wait(&status)) > 0){
-    ;
-    }
+    while ((wpid = wait(&status)) > 0);
     time_end   = rdtsc32();
 
-
-    printf("start = %u, end = %u, time delta = %u\n", time_start, time_end, time_end - time_start);
+    printf("time delta in clock cycles = %u pid = %d\n", time_end - time_start, pid);
+    printf("time delta in ms = %llf pid = %d\n", (time_end - time_start)/(float)500000, pid);
     printf("pid = %d, wpid = %d, status = %d\n", pid, wpid, status);
 
    return 0;

@@ -27,6 +27,7 @@ int main(int argc, char** argv) {
     time_end   = rdtsc32();
 
     printf("start = %u, end = %u, time delta = %u\n", time_start, time_end, time_end - time_start);
+    printf("time delta in ms = %llf\n", (time_end - time_start)/(float)500000);
     printf("pid = %d\n", pid);
     return 0;
 }

@@ -8,9 +8,10 @@
 #include <time.h>
 
 #define MYPORT 3490
-#define SIZE_TO_SEND 16
-//#define MY_IP "192.168.0.8"
-#define MY_IP "127.0.0.1"
+//#define SIZE_TO_SEND 16
+#define SIZE_TO_SEND 64
+#define MY_IP "192.168.0.8"
+//#define MY_IP "127.0.0.1"
 
 
 
@@ -72,7 +73,8 @@ int main(int argc, char** argv) {
     //connections OK
     //send 100 packet of size 1 byte and for each send wait for ack
     printf("Sending 100 messages 64 bytes each and wait for ack.\n");
-    for(num_packet_sent=0;num_packet_sent<100;num_packet_sent++){
+    //for(num_packet_sent=0; num_packet_sent<100; num_packet_sent++){
+    for(num_packet_sent=0; num_packet_sent<1; num_packet_sent++){
         time_start = rdtsc32();
 //	clock_gettime(CLOCK_MONOTONIC, &tstart);
         send(sockfd2,&tosend,sizeof(char)*16,0);
@@ -91,7 +93,8 @@ int main(int argc, char** argv) {
     }
 
 //    printf("some_long_computation took about %.5f seconds\n", total / 100);
-    uint32_t cycles = time_total/100;
+    //uint32_t cycles = time_total/100;
+    uint32_t cycles = time_total;
     printf("RTT in cycles= %u\n",cycles);
     printf("RTT in ms= %llf\n",cycles/(float)500000);
 

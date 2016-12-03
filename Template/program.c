@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     uint32_t time_end   = 0;
 
     time_start = rdtsc32();
-    sleep(10);
+    //sleep(10);
     time_end   = rdtsc32();
 
     printf("start = %u, end = %u, time delta = %u\n", time_start, time_end, time_end - time_start);

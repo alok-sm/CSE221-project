@@ -58,20 +58,100 @@ int main(int argc, char** argv) {
 
     uint32_t time_start = 0;
     uint32_t time_end   = 0;
-
+    uint32_t total = 0;
     const int val = 9;
+    int i = 0;
+
     time_start = rdtsc32();
-    //int ret = some_func();
-    //int ret = some_func1(val);
-    //int ret = some_func2(val, val);
-    //int ret = some_func3(val, val, val);
-    //int ret = some_func4(val, val, val, val);
-    //int ret = some_func5(val, val, val, val, val);
-    //int ret = some_func6(val, val, val, val, val, val);
-    int ret = some_func7(val, val, val, val, val, val, val);
+    int ret = some_func();
     time_end   = rdtsc32();
+    total = time_end - time_start;
+    printf("0 time delta = %u\n", total);
+    printf("0 time in ms = %llf\n", total/(float)500000);
 
-    printf("start = %u, end = %u, time delta = %u\n", time_start, time_end, time_end - time_start);
+    /*
+    total = 0;
+    for (i=0; i < 1000; i++){
+        time_start = rdtsc32();
+        int ret = some_func();
+        time_end   = rdtsc32();
+        printf("%u\n", (time_end - time_start));
+        total += (time_end - time_start);
+    }
+    printf("0 time delta = %u\n", total/1000);
+    printf("0 time in ms = %llf\n", (total/1000)/(float)500000);
+    */
+    /*
+    total = 0;
+    for (i=0; i < 1000; i++){
+        time_start = rdtsc32();
+        int ret = some_func1(val);
+        time_end   = rdtsc32();
+        total += (time_end - time_start);
+    }
+    printf("1 time delta = %u\n", total/1000);
+    printf("1 time in ms = %llf\n", (total/1000)/(float)500000);
 
+    total = 0;
+    for (i=0; i < 1000; i++){
+        time_start = rdtsc32();
+        int ret = some_func2(val, val);
+        time_end   = rdtsc32();
+        total += (time_end - time_start);
+    }
+    printf("2 time delta = %u\n", total/1000);
+    printf("2 time in ms = %llf\n", (total/1000)/(float)500000);
+
+    total = 0;
+    for (i=0; i < 1000; i++){
+        time_start = rdtsc32();
+        int ret = some_func3(val, val, val);
+        time_end   = rdtsc32();
+        total += (time_end - time_start);
+    }
+    printf("3 time delta = %u\n", total/1000);
+    printf("3 time in ms = %llf\n", (total/1000)/(float)500000);
+
+    total = 0;
+    for (i=0; i < 1000; i++){
+        time_start = rdtsc32();
+        int ret = some_func4(val, val, val, val);
+        time_end   = rdtsc32();
+        total += (time_end - time_start);
+    }
+    printf("4 time delta = %u\n", total/1000);
+    printf("4 time in ms = %llf\n", (total/1000)/(float)500000);
+
+    total = 0;
+    for (i=0; i < 1000; i++){
+        time_start = rdtsc32();
+        int ret = some_func5(val, val, val, val, val);
+        time_end   = rdtsc32();
+        total += (time_end - time_start);
+    }
+    printf("5 time delta = %u\n", total/1000);
+    printf("5 time in ms = %llf\n", (total/1000)/(float)500000);
+
+    total = 0;
+    for (i=0; i < 1000; i++){
+        time_start = rdtsc32();
+        int ret = some_func6(val, val, val, val, val, val);
+        time_end   = rdtsc32();
+        total += (time_end - time_start);
+    }
+    printf("6 time delta = %u\n", total/1000);
+    printf("6 time in ms = %llf\n", (total/1000)/(float)500000);
+
+    total = 0;
+    for (i=0; i < 1000; i++){
+        time_start = rdtsc32();
+        int ret = some_func7(val, val, val, val, val, val, val);
+        time_end   = rdtsc32();
+        total += (time_end - time_start);
+    }
+    printf("7 time delta = %u\n", total/1000);
+    printf("7 time in ms = %llf\n", (total/1000)/(float)500000);
+
+    */
     return 0;
 }

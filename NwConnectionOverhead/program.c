@@ -27,8 +27,8 @@ int main(int argc, char** argv) {
     system(cmd); 
 
     int sockfd, sockfd2;
-    char tosend[1000000]; //a char (1byte) to send to receivers
-    char ack[1000000];
+    char tosend[16]; //a char (1byte) to send to receivers
+    char ack[16];
     struct sockaddr_in my_addr,rcvr_addr;
     int sin_size = sizeof(my_addr), i, k, num_packet_sent, optval;
     my_addr.sin_family = AF_INET;
@@ -59,9 +59,14 @@ int main(int argc, char** argv) {
      exit(1);
     }
     listen(sockfd,10);
-
+    //send(sockfd2,&tosend,sizeof(char)*64,0);
+    //sockfd2 = accept(sockfd, (struct sockaddr *)&rcvr_addr, &sin_size);
+    //optval=recv(sockfd2,&ack,sizeof(char)*64,0);
+    //close(sockfd2);
     close(sockfd);
+
     time_end = rdtsc32();
     printf("Connection overhead: %u\n", time_end - time_start);
+    printf("Connection overhead: %llf\n", (time_end - time_start)/(float)500000);
     return 0;
 }

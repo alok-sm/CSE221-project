@@ -33,12 +33,14 @@ int main(int argc, char** argv) {
 
     printf("%u\n", temp);
 
-    printf("measurement overhead= %u\n", (time_end - time_start)/10000);
+    printf("measurement overhead in cycles= %u\n", (time_end - time_start)/10000);
+    printf("measurement overhead in ms= %llf\n", ((time_end - time_start)/10000)/(float)500000);
 
     time_start = rdtsc32();
     for (i = 0; i< 10000; i++);
     time_end = rdtsc32();
 
-    printf("empty loop measurement overhead= %u\n", (time_end - time_start)/10000);
+    printf("empty loop measurement overhead in cycles= %u\n", (time_end - time_start)/10000);
+    printf("empty loop measurement overhead in ms= %llf\n", ((time_end - time_start)/10000)/(float)500000);
     return 0;
 }

@@ -6,13 +6,21 @@
 #define SENDER_PORT 3490
 #define SENDER_IP "127.0.0.1"
 //#define SENDER_IP "192.168.0.8"
-#define NUM_CHARS 16
+//#define NUM_CHARS 16
 
 
 int main(int argc, char *argv[]) {
 
  int sockfd;
  int rcv_num,loop_count,i;
+ int NUM_CHARS = 0;
+ if (argc < 0) {
+    printf("Usage - no-of-bytes-to-send");
+    exit(1);
+ }
+ else {
+    NUM_CHARS = atoi(argv[1]);
+ }
  char buf[NUM_CHARS];
  //char buf = 's';
  struct sockaddr_in sender_addr;
@@ -37,7 +45,8 @@ int main(int argc, char *argv[]) {
  printf("Connection to sender established\n");
  //reads 100 packets of 1 byte and sends them back as ack packets
  printf("Receive 100 packets of 64 bytes and send then back\n");
- for(i=0;i<100;i++){
+ for(i=0;i<1;i++){
+ //for(i=0;i<100;i++){
   rcv_num = recv(sockfd, &buf, sizeof(char) * NUM_CHARS, 0);
   if(rcv_num!=0) {
    //send  ack

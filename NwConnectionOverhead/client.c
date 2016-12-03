@@ -33,17 +33,8 @@ int main(int argc, char *argv[]) {
  printf("Connection to sender established\n");
  //reads 100 packets of 1 byte and sends them back as ack packets
  printf("Receive 100 packets of 1 byte and send then back\n");
- for(i=0;i<100;i++){
-  rcv_num = recv(sockfd,&buf,sizeof(char)*1000000,0);
-  if(rcv_num!=0) {
    //send  ack
    send(sockfd,&buf,sizeof(char)*1000000,0);
-  }
-  else{ 
-   perror("Receive error");
-   exit(1);
-  }
- }
  printf("\tDone\nClose socket and exit\n");
  close(sockfd);
  exit(0);

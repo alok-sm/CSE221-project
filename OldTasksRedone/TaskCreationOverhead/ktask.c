@@ -41,7 +41,6 @@ int main(int argc, char** argv) {
 
     }
 
-    time_end = rdtsc32();
     /* wait for the second thread to finish */ 
     if(pthread_join(k_thread, NULL)) {
 
@@ -49,7 +48,9 @@ int main(int argc, char** argv) {
         return 2;
     }
 
-    printf("start = %u, end = %u, time delta = %u\n", time_start, time_end, time_end - time_start);
-    printf("start = %u, end = %u, time delta = %u\n", time_start, time_end1, time_end1 - time_start);
+    time_end = rdtsc32();
+
+    printf("time delta in clock = %u\n", time_end - time_start);
+    printf("time delta in ms = %llf\n", (time_end - time_start)/(float)500000);
     return 0;
 }

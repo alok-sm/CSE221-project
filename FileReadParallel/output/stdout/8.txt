@@ -1,0 +1,7 @@
+Data: h
+ sequential time delta in cycles= 13326021
+sequential time delta in ms= 26.652042
+num_blks = 10
+random Data: h
+ random time delta in cycles= 10648792
+random time delta in ms= 21.297585
